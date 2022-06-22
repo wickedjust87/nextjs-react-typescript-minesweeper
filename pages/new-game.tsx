@@ -1,12 +1,12 @@
-import { useState } from 'react'
+import { useCallback, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
 import styles from '../styles/Home.module.css'
-import { HeightConstraints, MinesConstraints, WidthConstraints } from './types';
+import { GameConfig, HeightConstraints, MinesConstraints, OptionalGameConfig, WidthConstraints } from './types';
 import Range from '../components/Range';
 
 const NewGame: NextPage = () => {
-  const [gameConfig, setGameConfig] = useState({
+  const [gameConfig, setGameConfig] = useState<GameConfig>({
     height: HeightConstraints.Default,
     mines: MinesConstraints.Default,
     width: WidthConstraints.Default,
@@ -14,7 +14,7 @@ const NewGame: NextPage = () => {
 
   const MinesConstraintsMax = gameConfig.width * gameConfig.height - 1;
 
-  const onChange = valueObject => {
+  const onChange = useCallback((valueObject: OptionalGameConfig) => {
     let newConfig = {
       ...gameConfig,
       ...valueObject,
@@ -27,7 +27,7 @@ const NewGame: NextPage = () => {
     }
 
     setGameConfig(newConfig);
-  };
+  }, [gameConfig, setGameConfig]);
 
   return (
     <div className={styles.container}>

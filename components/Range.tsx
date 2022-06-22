@@ -1,12 +1,13 @@
-import type { NumberConstraints } from '../pages/types';
+import type { ChangeEvent } from 'react';
+import type { NumberConstraints, GameConfig, OptionalGameConfig } from '../pages/types';
 import styles from '../styles/Range.module.css'
 
 type RangeProps = {
   constraints: NumberConstraints,
-  id: string,
+  id: keyof GameConfig,
   label: string,
   value: number,
-  onChange: () => void,
+  onChange: (valueObject: OptionalGameConfig) => void,
 };
 
 const Range = ({
@@ -16,7 +17,7 @@ const Range = ({
   value,
   onChange,
 }: RangeProps) => {
-  const onChangeRange = event => {
+  const onChangeRange = (event: ChangeEvent<HTMLInputElement>) => {
     const value = event.target.value;
     onChange({ [id]: value });
   }

@@ -20,3 +20,17 @@ export type NumberConstraints = {
   Max: number,
   Min: number,
 };
+
+export type GameConfig = {
+  height: number,
+  mines: number,
+  width: number,
+};
+
+export type OptionalGameConfig = {
+  height?: number,
+  mines?: number,
+  width?: number,
+};
+
+export type OneOfConfig = { height: number } | { mines: number } | { width: number };
