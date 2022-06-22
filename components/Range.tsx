@@ -1,14 +1,6 @@
 import type { ChangeEvent } from 'react';
-import type { NumberConstraints, GameConfig, OptionalGameConfig } from '../pages/types';
+import type { RangeProps } from '../pages/types';
 import styles from '../styles/Range.module.css'
-
-type RangeProps = {
-  constraints: NumberConstraints,
-  id: keyof GameConfig,
-  label: string,
-  value: number,
-  onChange: (valueObject: OptionalGameConfig) => void,
-};
 
 const Range = ({
   constraints,

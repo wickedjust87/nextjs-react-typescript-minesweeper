@@ -1,3 +1,5 @@
+/* Enums */
+
 export enum HeightConstraints {
   Default = 20,
   Max = 99,
@@ -15,16 +17,18 @@ export enum WidthConstraints {
   Min = 2,
 }
 
-export type NumberConstraints = {
-  Default: number,
-  Max: number,
-  Min: number,
-};
+/* Types */
 
 export type GameConfig = {
   height: number,
   mines: number,
   width: number,
+};
+
+export type NumberConstraints = {
+  Default: number,
+  Max: number,
+  Min: number,
 };
 
 export type OptionalGameConfig = {
@@ -33,4 +37,10 @@ export type OptionalGameConfig = {
   width?: number,
 };
 
-export type OneOfConfig = { height: number } | { mines: number } | { width: number };
+export type RangeProps = {
+  constraints: NumberConstraints,
+  id: keyof GameConfig,
+  label: string,
+  value: number,
+  onChange: (valueObject: OptionalGameConfig) => void,
+};

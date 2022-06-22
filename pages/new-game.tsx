@@ -63,15 +63,6 @@ const NewGame: NextPage = () => {
           value={gameConfig.mines}
           onChange={onChange}
         />
-
-
-        {/* <div>
-          <label>Width:</label>
-          <input type="range" min={WidthConstraints.Min} max={WidthConstraints.Max} value={gameConfig.width} />
-          <span>{gameConfig.width}</span>
-        </div>
-        <label>Height: </label><input type="range" min={HeightConstraints.Min} max={HeightConstraints.Max} value={gameConfig.height} /></label>
-        <label>Mines: </label><input type="range" min={MinesConstraints.Min} max={MinesConstraintsMax} value={gameConfig.mines} /></label> */}
       </main>
     </div>
   );
