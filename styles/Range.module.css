@@ -1,0 +1,13 @@
+.container {
+  display: flex;
+}
+
+.label {
+  text-align: right;
+  width: 60px;
+  margin-right: 5px;
+}
+
+.value {
+  width: 30px;
+}
