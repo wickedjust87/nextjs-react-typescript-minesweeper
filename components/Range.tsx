@@ -11,7 +11,7 @@ const Range = ({
   valueLabels,
 }: RangeProps) => {
   const onChangeRange = (event: ChangeEvent<HTMLInputElement>) => {
-    const value = event.target.value;
+    const value = parseInt(event.target.value);
     onChange({ [id]: value });
   }
 

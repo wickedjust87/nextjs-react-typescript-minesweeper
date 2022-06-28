@@ -44,11 +44,12 @@ const getDifficultyDefaults = (difficulty: Difficulty | undefined) => {
 
 const onChangeDifficulty = ({ setGameConfig, setGameDifficulty }: OnChangeDifficultyProps) => ({ difficulty }: OptionalGameDifficulty) => {
   const gameConfig = getDifficultyDefaults(difficulty);
+  
   if (gameConfig) {
     setGameConfig(gameConfig);
   }
 
-  if (difficulty) {
+  if (difficulty !== undefined) {
     setGameDifficulty({ difficulty });
   }
 };

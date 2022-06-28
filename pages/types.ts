@@ -82,7 +82,7 @@ export type OnChangeDifficultyProps = {
 };
 
 export type OnChangeRangeProps = {
-  [key:string]: string,
+  [key:string]: number,
 };
 
 export type ValueLabels = { [key:number]: string };
