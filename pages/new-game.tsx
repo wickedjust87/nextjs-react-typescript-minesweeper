@@ -54,7 +54,7 @@ const onChangeDifficulty = ({ setGameConfig, setGameDifficulty }: OnChangeDiffic
   }
 };
 
-const onChangeCustomSettings = ({ gameConfig, setGameConfig }: OnChangeCustomSettingsProps) => (valueObject: OptionalGameConfig) => {
+const onChangeCustomSettings = ({ gameDifficulty, gameConfig, setGameConfig, setGameDifficulty }: OnChangeCustomSettingsProps) => (valueObject: OptionalGameConfig) => {
   let newConfig = {
     ...gameConfig,
     ...valueObject,
@@ -67,6 +67,10 @@ const onChangeCustomSettings = ({ gameConfig, setGameConfig }: OnChangeCustomSet
   }
 
   setGameConfig(newConfig);
+
+  if (gameDifficulty.difficulty !== Difficulty.Custom) {
+    setGameDifficulty({ difficulty: Difficulty.Custom });
+  }
 };
 
 const NewGame: NextPage = () => {
@@ -79,7 +83,7 @@ const NewGame: NextPage = () => {
   });
 
   const MinesConstraintsMax = getMinesConstraintsMax(gameConfig);
-  const onChangeCustomSettingsCallback = onChangeCustomSettings({ gameConfig, setGameConfig });
+  const onChangeCustomSettingsCallback = onChangeCustomSettings({ gameDifficulty, gameConfig, setGameConfig, setGameDifficulty });
   const onChangeDifficultyCallback = onChangeDifficulty({ setGameConfig, setGameDifficulty });
 
   return (

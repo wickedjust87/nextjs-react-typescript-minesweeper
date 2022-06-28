@@ -73,7 +73,9 @@ export type OptionalGameDifficulty = {
 
 export type OnChangeCustomSettingsProps = {
   gameConfig: GameConfig,
+  gameDifficulty: GameDifficulty,
   setGameConfig: (gameConfig: GameConfig) => void,
+  setGameDifficulty: (gameDifficulty: GameDifficulty) => void,
 };
 
 export type OnChangeDifficultyProps = {
