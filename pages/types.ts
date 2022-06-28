@@ -6,16 +6,16 @@ export enum DifficultyDefaultsEasy {
   width = 5,
 }
 
+export enum DifficultyDefaultsHard {
+  height = 25,
+  mines = 400,
+  width = 25,
+}
+
 export enum DifficultyDefaultsMedium {
   height = 10,
   mines = 30,
   width = 10,
-}
-
-export enum DifficultyDefaultsHard {
-  height = 99,
-  mines = 3200,
-  width = 99,
 }
 
 export enum Difficulty {
@@ -31,7 +31,7 @@ export enum DifficultyConstraints {
 }
 
 export enum HeightConstraints {
-  Max = 99,
+  Max = 25,
   Min = 2,
 }
 
@@ -40,7 +40,7 @@ export enum MinesConstraints {
 }
 
 export enum WidthConstraints {
-  Max = 99,
+  Max = 25,
   Min = 2,
 }
 
