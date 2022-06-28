@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/Home.module.css'
+import styles from '../styles/NewGame.module.css'
 import { 
   Difficulty,
   DifficultyConstraints,
@@ -99,35 +99,39 @@ const NewGame: NextPage = () => {
           New Game
         </h1>
 
-        <Range
-          constraints={DifficultyConstraints}
-          id="difficulty"
-          label="Difficulty"
-          onChange={onChangeDifficultyCallback}
-          value={gameDifficulty.difficulty}
-          valueLabels={gameDifficultyLabels}
-        />
-        <Range
-          constraints={WidthConstraints}
-          id="width"
-          label="Width"
-          onChange={onChangeCustomSettingsCallback}
-          value={gameConfig.width}
-        />
-        <Range
-          constraints={HeightConstraints}
-          id="height"
-          label="Height"
-          onChange={onChangeCustomSettingsCallback}
-          value={gameConfig.height}
-        />
-        <Range
-          constraints={{...MinesConstraints, Max: MinesConstraintsMax}}
-          id="mines"
-          label="Mines"
-          onChange={onChangeCustomSettingsCallback}
-          value={gameConfig.mines}
-        />
+        <section className={styles.section}>
+          <Range
+            constraints={DifficultyConstraints}
+            id="difficulty"
+            label="Difficulty"
+            onChange={onChangeDifficultyCallback}
+            value={gameDifficulty.difficulty}
+            valueLabels={gameDifficultyLabels}
+          />
+          <Range
+            constraints={WidthConstraints}
+            id="width"
+            label="Width"
+            onChange={onChangeCustomSettingsCallback}
+            value={gameConfig.width}
+          />
+          <Range
+            constraints={HeightConstraints}
+            id="height"
+            label="Height"
+            onChange={onChangeCustomSettingsCallback}
+            value={gameConfig.height}
+          />
+          <Range
+            constraints={{...MinesConstraints, Max: MinesConstraintsMax}}
+            id="mines"
+            label="Mines"
+            onChange={onChangeCustomSettingsCallback}
+            value={gameConfig.mines}
+          />
+        </section>
+        
+        <button>Start Game</button>
       </main>
     </div>
   );
