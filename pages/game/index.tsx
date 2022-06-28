@@ -1,7 +1,7 @@
 import { useCallback, useState } from 'react'
 import type { NextPage } from 'next'
 import Head from 'next/head'
-import styles from '../styles/NewGame.module.css'
+import styles from '../../styles/NewGame.module.css'
 import { 
   Difficulty,
   DifficultyConstraints,
@@ -17,8 +17,8 @@ import {
   OptionalGameConfig, 
   OptionalGameDifficulty, 
   WidthConstraints 
-} from './types';
-import Range from '../components/Range';
+} from '../types';
+import Range from '../../components/Range';
 
 const gameDifficultyLabels = {
   0: 'Easy',
