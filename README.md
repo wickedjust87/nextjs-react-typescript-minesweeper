@@ -2,6 +2,33 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 ## Getting Started
 
+You will need to install mongodb locally:
+
+First download Compass. Compass is a GUI for querying mongo database. It's not manditory to have but makes debugging much easier.
+https://www.mongodb.com/products/compass -> Click "Download Now" button. -> Click "Download" button.
+Download the zipped file and extract it to its folder.
+Click on the installer and follow the prompts to install it.
+
+You can follow links to find and download the version of mongodb:
+https://www.mongodb.com/database/free -> search for MongoDB Community Server
+https://www.mongodb.com/try/download/community -> select a version (used 5.0.9) and click download
+Download the zipped file and extract it to its folder.
+Open a terminal
+run command (for mac): sudo mkdir -p ~/data
+run command: cd ~/data
+run command: pwd
+Take note of the path as this will be used later.
+navigate to downloaded zip file and cd to its extracted folder
+run command: cd bin
+run command (insert dbpath from pwd above step): sudo ./mongod --dbpath=/Users/<username>/data
+
+Open the extracted folder and open bin directory. 
+If running into file permissions when opening files (on mac), try right click -> open, then accept permission.
+Open the mongod file.
+This will start mongodb instance locally. This will need to be running anytime you want to run the project.
+
+
+
 First, run the development server:
 
 ```bash
