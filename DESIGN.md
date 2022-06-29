@@ -28,13 +28,16 @@ InternalGameState
     ...
   ],
   flagged: [ // flagged board square ids
-    10, ...
+    10, 
+    ...
   ],
   questioned: [ // questioned board square ids
-    5, ...
+    5, 
+    ...
   ],
   revealed: [ // revealed board square ids
-    11, ...
+    11, 
+    ...
   ],
   version: 1,
 }
@@ -47,13 +50,16 @@ ExternalGameState
       x: 1,
       y: 1,
       value: -1 (mine), 0 (no mines nearby), # of surrounding mines
-    }
+    },
+    ...
   ],
   flagged: [ // flagged board square ids
-    10
+    10, 
+    ...
   ],
   questioned: [ // questioned board square ids
-    5, ...
+    5, 
+    ...
   ],
   version: 1,
 }
