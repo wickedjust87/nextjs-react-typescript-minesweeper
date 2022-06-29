@@ -2,6 +2,13 @@ Minesweeper Design
 
 Data structures:
 ```
+GameConfig
+{
+  height: 10,
+  mines: 5,
+  width: 10,
+}
+
 InternalGameState
 {
   board: [
@@ -20,20 +27,16 @@ InternalGameState
     },
     ...
   ],
-  configuration: {
-    height: 10,
-    mines: 5,
-    width: 10,
-  },
-  flags: [ // flagged board square ids
+  flagged: [ // flagged board square ids
     10, ...
   ],
-  questions: [ // questioned board square ids
+  questioned: [ // questioned board square ids
     5, ...
   ],
   revealed: [ // revealed board square ids
     11, ...
   ],
+  version: 1,
 }
 
 ExternalGameState
@@ -46,17 +49,13 @@ ExternalGameState
       value: -1 (mine), 0 (no mines nearby), # of surrounding mines
     }
   ],
-  configuration: {
-    height: 10,
-    mines: 5,
-    width: 10,
-  },
-  flags: [ // flagged board square ids
+  flagged: [ // flagged board square ids
     10
   ],
-  questions: [ // questioned board square ids
+  questioned: [ // questioned board square ids
     5, ...
   ],
+  version: 1,
 }
 ```
 
@@ -64,20 +63,39 @@ APIs
 
 POST /game ({ height, mines, width })
 - creates a new game with set parameters
-- returns to the client a guid which is then used in /game URL
+- returns to the client a guid which is then used in /game/{gameId} URL
+{
+  gameId: 'aaaa-aaaa-aaaa-aaaa',
+}
 
 GET /game/{gameId}
-- returns the current board state that has been already revealed
+- returns the game configuration and current board state that has been already revealed
 - if starting a new game it will return 
+{
+  gameConfig: GameConfig,
+  gameState: ExternalGameState,
+}
 
-POST /game/{gameId}/reveal ({ x, y })
+POST /game/{gameId}/reveal ({ version, x, y })
+- version is passed to ensure client and server are in sync
 - attempt to make a selection at the x and y coordinate
 - returns the new board state
+{
+  gameState: ExternalGameState,
+}
 
-POST /game/{gameId}/flag ({ x, y })
+POST /game/{gameId}/flag ({ version, x, y })
+- version is passed to ensure client and server are in sync
 - places a flag at the location
 - returns the new board state
+{
+  gameState: ExternalGameState,
+}
 
-POST /game/{gameId}/question ({ x, y })
+POST /game/{gameId}/question ({ version, x, y })
+- version is passed to ensure client and server are in sync
 - places a question mark at the location
 - returns the new board state
+{
+  gameState: ExternalGameState,
+}
